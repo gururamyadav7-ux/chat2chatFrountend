@@ -1,0 +1,13 @@
+
+.shadowbox{
+  box-shadow: 0 0 2px black;
+}
+
+.scrollBarhaid{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.shadowboxMenu{
+  box-shadow: 0 0 50px black;
+}
