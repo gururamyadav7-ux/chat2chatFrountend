@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const apiUrl = import.meta.env.VITE_API_URL
 import { setAccessToken } from "../refreshTokenLogic/Token"
 
 const api = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: apiUrl,
   withCredentials: true,
 });
 

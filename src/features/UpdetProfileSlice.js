@@ -1,7 +1,6 @@
 // redux/profileSlice.js
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import api from "../refreshTokenLogic/refreshToken";
 
 export const updateProfile = createAsyncThunk(
     "profile/updateProfile",
@@ -12,11 +11,7 @@ export const updateProfile = createAsyncThunk(
             const token =
                 localStorage.getItem("accessToken");
 
-            const response = await axios.put(
-                "http://localhost:4000/api/user/profile",
-
-                profileData,
-
+            const response = await api.put("/user/profile", profileData,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,

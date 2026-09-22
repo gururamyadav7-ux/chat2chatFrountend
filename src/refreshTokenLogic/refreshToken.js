@@ -1,7 +1,8 @@
+const apiUrl = import.meta.env.VITE_API_URL
 import axios from "axios";
 import { getAccessToken, setAccessToken } from "../refreshTokenLogic/Token";
 const api = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: apiUrl,
   withCredentials: true, // refreshToken cookie bhejne ke liye
   headers: { "Content-Type": "application/json" }
 });
