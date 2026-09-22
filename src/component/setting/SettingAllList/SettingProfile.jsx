@@ -22,6 +22,11 @@ import { FaInfinity } from "react-icons/fa6";
 import { IoSearchSharp } from "react-icons/io5";
 import { BiQrScan } from "react-icons/bi";
 import { MdOutlineEdit } from "react-icons/md";
+// footer icon
+import { RiFacebookCircleLine } from "react-icons/ri";
+import { FaInstagram } from "react-icons/fa";
+import { IoAtSharp } from "react-icons/io5";
+import { SiMetaai } from "react-icons/si";
 
 const SettingsPhone = ({ onBack }) => {
     const settings = [
@@ -136,23 +141,24 @@ const SettingsPhone = ({ onBack }) => {
 
             </div>
 
-            <div className="mx-auto max-w-md">
+            <div className="mx-auto flex flex-col items-center  relative max-w-md bg-white">
 
                 {/* Profile */}
-                <div className="flex flex-col items-center gap-4 border-b bg-white px-5 py-5">
+                <div className=" absolute  flex flex-col items-center gap-4 border-b rounded-full w-52 h-52
+                 px-5 py-5">
 
                     {/* Profile Image */}
-                    <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-gray-200 text-3xl">
+                    <div className="flex h-19 w-19 items-center justify-center overflow-hidden rounded-full bg-gray-200 text-3xl">
                         <FaUser />
                     </div>
 
                     {/* Profile Info */}
                     <div className="flex-1">
-                        <h2 className="text-lg font-semibold text-gray-800">
+                        <h2 className="text-lg font-semibold text-blue-400">
                             Gururam
                         </h2>
 
-                        <p className="mt-1 text-sm text-gray-500">
+                        <p className="mt-1 text-sm text-green-400">
                             Available
                         </p>
                     </div>
@@ -160,28 +166,28 @@ const SettingsPhone = ({ onBack }) => {
                 </div>
 
                 {/* Settings List */}
-                <div className="mt-2 bg-white">
+                <div className="bg-gray-900 overflow-hidden pt-[30%] rounded-tl-[23%] rounded-tr-[23%] mt-26">
 
                     {settings.map((item, index) => (
                         <button
                             key={index}
-                            className="flex w-full items-center gap-5 px-5 py-4 text-left transition hover:bg-gray-50"
+                            className="flex w-full items-center gap-5 px-5 py-4 text-left transition hover:bg-gray-950"
                         >
 
                             {/* Icon */}
-                            <div className="flex h-10 w-10 items-center justify-center text-2xl">
+                            <div className="flex text-orange-600 h-10 w-10 items-center justify-center text-2xl">
                                 {item.icon}
                             </div>
 
                             {/* Content */}
                             <div className="flex-1">
 
-                                <h3 className="font-medium text-gray-800">
+                                <h3 className="font-medium text-white">
                                     {item.title}
                                 </h3>
 
                                 {item.subtitle && (
-                                    <p className="mt-1 text-xs leading-5 text-gray-500">
+                                    <p className="mt-1 text-xs leading-5 text-gray-400">
                                         {item.subtitle}
                                     </p>
                                 )}
@@ -196,6 +202,12 @@ const SettingsPhone = ({ onBack }) => {
                         </button>
                     ))}
 
+                </div>
+                <div className="flex items-center justify-evenly w-full border-b bg-black text-white h-20">
+                    <div className=" w-15 h-15 flex items-center justify-center text-3xl rounded-full hover:bg-blue-700"><i><RiFacebookCircleLine /></i></div>
+                    <div className=" w-15 h-15 flex items-center justify-center text-3xl rounded-full hover:bg-orange-600"><i><FaInstagram /></i></div>
+                    <div className=" w-15 h-15 flex items-center justify-center text-3xl rounded-full hover:bg-white hover:text-black"><i><IoAtSharp /></i></div>
+                    <div className=" hover:bg-[conic-gradient(#ff8c00,#00aaff,#00c853,#ff8c00)] shadow-[0_0_50px_rgba(0,180,255,)] w-15 h-15 flex items-center hover:text-[#00008b] justify-center text-3xl rounded-full"><i><SiMetaai /></i></div>
                 </div>
 
                 {/* Footer */}
