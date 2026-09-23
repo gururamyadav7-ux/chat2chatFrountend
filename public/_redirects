@@ -1,0 +1,11 @@
+[[redirects]]
+
+from = "/*"
+to = "index.html"
+status = 200
+
+[[redirects]]
+
+from = "api/*"
+to = "https://chat2chatbackend.onrender.com/:splat"
+status = 200
