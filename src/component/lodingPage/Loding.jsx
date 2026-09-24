@@ -66,7 +66,7 @@ const LoadingPage = () => {
             tracking-wide
           "
         >
-          WhatsApp
+          Wordwav
         </h1>
 
         {/* Loading text */}

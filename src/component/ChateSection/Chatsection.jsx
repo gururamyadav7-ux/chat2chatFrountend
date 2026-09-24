@@ -89,7 +89,7 @@ const Chatsection = () => {
   };
 
   return (
-    <section className=" lg:w-[60%] h-screen border relative from-slate-900 via-slate-800 to-slate-900">
+    <section className=" lg:w-[60%] h-screen border relative ">
       {chatProfile ? (
         <header className=" relative h-[8%] w-full flex items-center gap-2 p-2 bg-gray-200">
           <i onClick={() => nevigate("/chat")}>
@@ -121,7 +121,7 @@ const Chatsection = () => {
       )}
 
       <div
-        className={`flex-1 overflow-y-scroll [&::-webkit-scrollbar]:hidden ${chatProfile ? "h-[86%]" : "h-[93%]"} space-y-4  bg-slate-950/50 p-6`}
+        className={`flex-1 overflow-y-scroll [&::-webkit-scrollbar]:hidden ${chatProfile ? "h-[85%]" : "h-[93%]"} space-y-4 bg-gray-950 p-6`}
       >
         <div className="flex justify-center">
           <span className="rounded-full bg-slate-800 px-4 py-2 text-xs text-slate-400">
@@ -176,7 +176,7 @@ const Chatsection = () => {
         {/* <div ref={messagesEndRef} /> */}
       </div>
 
-      <form className=" h-[7%] bg-amber-900 absolute flex items-center justify-center gap-2 bottom-0 w-full right-0">
+      <form className=" h-[7%] bg-blue-500 absolute flex items-center justify-center gap-2 bottom-0 w-full right-0">
         <div className=" h-9 w-[80%] relative">
           <span className="text-xl cursor-pointer absolute top-[50%] -translate-y-[50%] left-2 ">😊</span>
           <div className=" flex gap-3 absolute top-[50%] -translate-y-[50%] right-4">
@@ -197,19 +197,19 @@ const Chatsection = () => {
                 sendMessage();
               }
             }}
-            className=" h-full w-full bg-white pl-10 rounded-3xl focus:border-2 shadowbox border-green-500 outline-none "
+            className=" h-full w-full bg-white pl-10 rounded-3xl focus:border-2 shadowbox border-orange-700 outline-none "
           />
 
         </div>
 
         {SendIcon ? <button
           onClick={sendMessage}
-          className="ml-2 text-3xl text-green-500 cursor-pointer
+          className="ml-2 text-3xl text-gray-100 cursor-pointer
            "
           type="submit"
         >
           ➤
-        </button> : <i><TiMicrophone className=" rounded-full text-green-500
+        </button> : <i><TiMicrophone className=" rounded-full text-white
          cursor-pointer text-3xl " /> </i>}
 
       </form>

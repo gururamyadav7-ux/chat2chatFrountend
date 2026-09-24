@@ -60,7 +60,7 @@ const Setting = () => {
         <BsThreeDotsVertical className="text-white text-2xl" />
       </i>
       {OpenSlid ?
-        <div className="text-white w-38 text-[14px] absolute top-full right-0 flex flex-col gap-2 bg-gray-950 p-5 rounded-xl">
+        <div className="text-white w-38 font-medium text-[14px] absolute top-full right-0 flex flex-col gap-2 bg-gray-950 p-5 rounded-xl">
           {menuList.map((item) => (
             <Link key={item.id} onClick={() => handelMenuClick(item)} className={`${active === item ? "text-blue-500" : "text-white"}`}>
               {item.name}

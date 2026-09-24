@@ -1,9 +1,10 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Payments = ({ onBack }) => {
-  const [showUPI, setShowUPI] = useState(false);
-
+const Payments = () => {
+  const Nevigate = useNavigate()
+  const [showUPI, setShowUPI] = useState(false)
   const [transactions] = useState([
     {
       id: 1,
@@ -28,7 +29,7 @@ const Payments = ({ onBack }) => {
       <div className="sticky top-0 z-20 flex items-center gap-4 bg-[#008069] px-4 py-4 text-white">
 
         <button
-          onClick={onBack}
+          onClick={() => Nevigate("/chat")}
           className="text-2xl transition hover:scale-110"
         >
           ←
