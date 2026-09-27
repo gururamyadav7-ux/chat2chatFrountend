@@ -25,7 +25,7 @@ const Community = () => {
   }, []);
 
   return (
-    <div ref={profileRef} className=" w-full lg:w-[40%] h-screen lg:h-full bg-gray-950 shadow-2xl">
+    <div ref={profileRef} className=" w-full lg:w-[40%] h-[93vh] lg:h-full bg-gray-950 shadow-2xl">
       {/* Header */}
       <div className="flex justify-between items-center px-5 py-2">
         <h2 className="text-green-500 font-bold text-3xl">Communities</h2>

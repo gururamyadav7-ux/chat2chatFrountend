@@ -13,7 +13,7 @@ export default function Meadia() {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="h-[93vh] flex items-center justify-center bg-gray-100">
       {/* Modal */}
 
       <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">

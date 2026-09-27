@@ -99,7 +99,7 @@ const Profile = () => {
   }
 
   return (
-    <div ref={profileRef} className=" w-full lg:w-[40%] h-screen lg:h-full bg-white shadow-2xl">
+    <div ref={profileRef} className=" w-full lg:w-[40%] h-[93vh] lg:h-full bg-white shadow-2xl">
       {/* Header */}
       <div className="h-13 bg-[#001780] flex items-center justify-between px-2 text-white">
         <div className="flex items-center">

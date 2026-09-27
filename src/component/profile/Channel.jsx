@@ -26,7 +26,7 @@ const Channel = () => {
   return (
     <div
       ref={profileRef}
-      className=" w-full lg:w-[40%] h-screen lg:h-full bg-gray-950 shadow-2xl px-2"
+      className=" w-full lg:w-[40%] h-[93vh] lg:h-full bg-gray-950 shadow-2xl px-2"
     >
       {/* Header */}
       <div className="flex justify-between items-center px-5 py-2">

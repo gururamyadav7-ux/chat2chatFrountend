@@ -30,7 +30,7 @@ const Status = () => {
   return (
     <div
       ref={profileRef}
-      className=" w-full lg:w-[40%] px-2 h-screen lg:h-full flex flex-col bg-gray-950 shadow-2xl"
+      className=" w-full lg:w-[40%] px-2 h-[93vh] lg:h-full flex flex-col bg-gray-950 shadow-2xl"
     >
       {/* Header */}
       <div className="flex justify-between items-center px-5 py-2">

@@ -69,7 +69,7 @@ const Register = () => {
 
   console.log(loading);
   return (
-    <div className="min-h-screen bg-[#f0f2f5] flex items-center justify-center px-4">
+    <div className="h-[93vh] bg-[#f0f2f5] flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
         {/* Logo */}
         <div className="flex justify-center mb-4">
