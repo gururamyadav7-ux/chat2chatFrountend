@@ -120,7 +120,7 @@ const Chatsection = () => {
       )}
 
       <div
-        className={`flex-1 overflow-y-scroll [&::-webkit-scrollbar]:hidden ${chatProfile ? "h-[85%]" : "h-[93%]"} space-y-4 bg-gray-950 p-6`}
+        className={`flex-1 overflow-y-scroll [&::-webkit-scrollbar]:hidden ${chatProfile ? "h-[77%]" : "h-[93%]"} space-y-4 bg-gray-950 p-6`}
       >
         <div className="flex justify-center">
           <span className="rounded-full bg-slate-800 px-4 py-2 text-xs text-slate-400">
