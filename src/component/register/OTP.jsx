@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // api Verifi
-import { RegisterVeryfai } from "../../features/Register"
+import { RegisterVeryfai } from "../../features/registerSlice"
 // Hook
 import { UserContext } from "../../Hook/UserContext";
 import { useContext } from "react";

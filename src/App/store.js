@@ -2,7 +2,7 @@
 // This file is used to configure the Redux store for the application. It imports the necessary reducers and combines them into a single store.
 import { configureStore } from "@reduxjs/toolkit";
 // Importing register reducer from the features folder to manage user login state
-import userreducerRegister from "../features/Register";
+import userreducerRegister from "../features/registerSlice";
 // Importing login reducer from the features folder to manage user login state
 import userreducerLogin from "../features/Login";
 // Importing user reducer from the features folder to manage user state

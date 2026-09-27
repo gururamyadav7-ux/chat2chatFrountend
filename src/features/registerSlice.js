@@ -23,7 +23,7 @@ export const RegisterVeryfai = createAsyncThunk(
     },
 );
 
-const loginSlice = createSlice({
+const Registerslice = createSlice({
     name: "auth",
 
     initialState: {
@@ -62,6 +62,6 @@ const loginSlice = createSlice({
 
 });
 
-export const { logout } = loginSlice.actions;
+export const { logout } = Registerslice.actions;
 
-export default loginSlice.reducer;
+export default Registerslice.reducer;
