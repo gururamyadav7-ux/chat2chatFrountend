@@ -9,7 +9,8 @@ export const loginUser = createAsyncThunk(
       const { data } = await api.post("/user/login", formData);
 
       // JWT token save
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("UserId", data.user._id);
 
       return data;
     } catch (error) {

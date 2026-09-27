@@ -32,8 +32,7 @@ const Chatsection = () => {
   const [SendIcon, setSendIcon] = useState(false)
 
   // localStorage se user ko get karna
-  const user = JSON.parse(localStorage.getItem("user"));
-  const userId = user?._id;
+  const userId = localStorage.getItem("UserId");
 
   // massge ko get karne ke liye current user id aur selected user id
   const SenderUserId = userId;

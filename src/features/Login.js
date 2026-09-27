@@ -7,11 +7,11 @@ const api = axios.create({
     headers: { "Content-Type": "application/json" }
 });
 
-export const RegisterVeryfai = createAsyncThunk(
+export const LoginVeryfai = createAsyncThunk(
     "auth/login",
     async (formData, { rejectWithValue }) => {
         try {
-            const { data } = await api.post("/user/verify-register-otp", formData);
+            const { data } = await api.post("/user/verify-login-otp", formData);
             // JWT token save
             localStorage.setItem("accessToken", data.accessToken);
             localStorage.setItem("UserId", data.user._id);
@@ -43,18 +43,18 @@ const loginSlice = createSlice({
 
     extraReducers: (builder) => {
         builder
-            .addCase(RegisterVeryfai.pending, (state) => {
+            .addCase(LoginVeryfai.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
 
-            .addCase(RegisterVeryfai.fulfilled, (state, action) => {
+            .addCase(LoginVeryfai.fulfilled, (state, action) => {
                 state.loading = false;
                 state.user = action.payload.user;
                 state.token = action.payload.token;
             })
 
-            .addCase(RegisterVeryfai.rejected, (state, action) => {
+            .addCase(LoginVeryfai.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             });

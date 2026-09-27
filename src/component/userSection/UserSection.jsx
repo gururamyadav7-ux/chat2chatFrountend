@@ -45,7 +45,7 @@ const Users = () => {
             className={`flex items-center shadowbox px-2 bg-white rounded-xl cursor-pointer hover:bg-gray-200 `}
           >
             <div className="w-11 h-11 overflow-hidden rounded-full bg-blue-400 text-white font-bold  flex items-center justify-center">
-              <img src={user.profilePic} alt="" />
+              <img src={user.profilePic || "https://static.vecteezy.com/system/resources/previews/036/280/651/original/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg"} alt="" />
             </div>
 
             <div className="w-[90%] py-3 px-2  flex flex-col">

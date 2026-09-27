@@ -1,16 +1,22 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../features/loginslice";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL
+const api = axios.create({
+  baseURL: apiUrl,
+  withCredentials: true,
+});
+
+import { LoginContext } from "../../Hook/UserContext";
+
 const Login = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const { loading, error } = useSelector((state) => {
-    return state.login;
-  });
-
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [message, setMessage] = useState("")
+  const { setUser } = useContext(LoginContext);
   const [formData, setFormData] = useState({
     phone: "",
     email: "",
@@ -27,18 +33,29 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await dispatch(loginUser(formData));
 
-      console.log(result);
+      setLoading(true)
+      const response = await api.post(
+        "/user/login",
+        formData
+      );
+      
+      setUser(formData)
 
-      if (loginUser.fulfilled.match(result)) {
-        setFormData({
-          email: "",
-          password: "",
-        });
-      }
-      navigate("/chat");
+      const OTPData = response.data
+
+      setSuccess(OTPData.success)
+      setMessage(OTPData.message)
+
+      setLoading(false)
+      setFormData({
+        email: "",
+        password: "",
+      });
+
+      navigate("/Login-OtpVerification");
     } catch (err) {
+      setError("OTP not send")
       console.log(err);
       navigate("/login");
     }
@@ -55,7 +72,7 @@ const Login = () => {
         </div>
 
         <h1 className="text-3xl font-semibold text-center text-gray-800">
-          WhatsApp
+          WordWav
         </h1>
 
         <p className="text-center text-gray-500 mt-2 mb-7">
@@ -111,6 +128,7 @@ const Login = () => {
 
           {/* Error */}
           {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+          {success && <p className="text-green-500 text-sm mb-4">{message}</p>}
 
           {/* Login Button */}
           <button

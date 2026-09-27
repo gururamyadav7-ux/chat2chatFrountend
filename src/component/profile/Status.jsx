@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { LuCirclePlus } from "react-icons/lu";
+import { FaCirclePlus } from "react-icons/fa6";
 
 const Status = () => {
   const profileRef = useRef(null);
@@ -26,7 +27,6 @@ const Status = () => {
       },
     );
   }, []);
-
   return (
     <div
       ref={profileRef}
@@ -44,59 +44,84 @@ const Status = () => {
           </i>
         </div>
       </div>
-      {/*Status story*/}
-      <div className="rounded-2xl mt-5 hover:bg-gray-900 py-2 px-5">
+
+      <div className=" w-full rounded-2xl mt-5 hover:bg-gray-900 py-2 px-5">
         {/* Profile Image */}
-        <div className="flex gap-2 text-white">
-          <div
-            className="relative w-15 h-15
-                  rounded-full group"
-          >
+        <div className="flex gap-2 w-full text-white">
+          <div className=" mr-3 relative w-20 h-32 rounded-[5px] p-[2px] bg-gradient-to-tr from-yellow-400 via-green-500 to-purple-600 group">
             <img
               src="https://tse3.mm.bing.net/th/id/OIP.xL_BcE3-R2K48f-BBDa-cgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
               alt="profile"
               className="
-                  w-15 h-15
-                  rounded-full
+                  w-full h-full
+                  rounded-[5px]
                   object-cover
-                  border-4 border-white
                   shadow-xl
                   transition-all duration-500
                   group-hover:scale-105
                 "
             />
 
-            {/* Camera Button */}
-            <label
-              htmlFor="profileImage"
-              className="
-                  absolute top-9 -right-1
-                  w-5 h-5
-                  border-2 border-black
-                  rounded-full
-                  bg-[#00a884]
-                  text-black
-                  font-bold
-                  flex items-center justify-center
-                  cursor-pointer
-                  shadow-lg
-                  transition-all duration-300
-                  hover:scale-110
-                  hover:bg-[#008f72]
-                "
-            >
-              +
-              <input
-                id="profileImage"
-                type="file"
-                accept="image/*"
-                className="hidden"
-              />
-            </label>
+            <i className="text-3xl absolute  -bottom-1 -right-1 bg-white rounded-full">
+              <FaCirclePlus className="text-blue-600" />
+            </i>
           </div>
-          <div>
-            <h4>{name}</h4>
-            <p>{Time}</p>
+          {/* all user story */}
+          <div className=" relative w-20 h-32 rounded-[5px] p-[2px] bg-gradient-to-tr from-yellow-400 via-green-500 to-purple-600 group">
+            <img
+              src="https://tse3.mm.bing.net/th/id/OIP.xL_BcE3-R2K48f-BBDa-cgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt="profile"
+              className="
+                  w-full h-full
+                  rounded-[5px]
+                  object-cover
+                  shadow-xl
+                  transition-all duration-500
+                  group-hover:scale-105
+                "
+            />
+          </div>
+          <div className=" relative w-20 h-32 rounded-[5px] p-[2px] bg-gradient-to-tr from-yellow-400 via-green-500 to-purple-600 group">
+            <img
+              src="https://tse3.mm.bing.net/th/id/OIP.xL_BcE3-R2K48f-BBDa-cgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt="profile"
+              className="
+                  w-full h-full
+                  rounded-[5px]
+                  object-cover
+                  shadow-xl
+                  transition-all duration-500
+                  group-hover:scale-105
+                "
+            />
+          </div>
+          <div className=" relative w-20 h-32 rounded-[5px] p-[2px] bg-gradient-to-tr from-yellow-400 via-green-500 to-purple-600 group">
+            <img
+              src="https://tse3.mm.bing.net/th/id/OIP.xL_BcE3-R2K48f-BBDa-cgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt="profile"
+              className="
+                  w-full h-full
+                  rounded-[5px]
+                  object-cover
+                  shadow-xl
+                  transition-all duration-500
+                  group-hover:scale-105
+                "
+            />
+          </div>
+          <div className=" relative w-20 h-32 rounded-[5px] p-[2px] bg-gradient-to-tr from-yellow-400 via-green-500 to-purple-600 group">
+            <img
+              src="https://tse3.mm.bing.net/th/id/OIP.xL_BcE3-R2K48f-BBDa-cgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt="profile"
+              className="
+                  w-full h-full
+                  rounded-[5px]
+                  object-cover
+                  shadow-xl
+                  transition-all duration-500
+                  group-hover:scale-105
+                "
+            />
           </div>
         </div>
       </div>
@@ -133,7 +158,7 @@ const Status = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

@@ -11,16 +11,27 @@ import LinkedDevices from "../component/setting/SettingAllList/LinkedDevices";
 import Starred from "../component/setting/SettingAllList/Starred";
 import Payments from "../component/setting/SettingAllList/Payments";
 import SettingsPhone from "../component/setting/SettingAllList/SettingProfile";
+import OtpVerification from "../component/register/OTP";
+import LoginOtpVerification from "../component/loginPage/LoginOTP";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
   },
+  // login Otp
+  {
+    path: "/Login-OtpVerification",
+    element: <LoginOtpVerification/>,
+  },
 
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/register-OtpVerification",
+    element: <OtpVerification />,
   },
 
   {

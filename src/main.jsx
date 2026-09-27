@@ -11,8 +11,16 @@ import { router } from "../src/router/router.jsx";
 import { Provider } from "react-redux";
 import { store } from "./App/store.js";
 
+// hook 
+import { UserProvider } from "../src/Hook/UserContext.jsx";
+import { LoginUserProvider } from "../src/Hook/UserContext.jsx";
+
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <LoginUserProvider>
+        <RouterProvider router={router} />
+      </LoginUserProvider>
+    </UserProvider>
   </Provider>,
 );

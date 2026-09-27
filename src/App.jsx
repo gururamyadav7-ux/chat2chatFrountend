@@ -63,7 +63,7 @@ function App() {
   //// loding close ///******* */
 
   return (
-    <main className="container relative bg-black mx-auto h-screen flex">
+    <main className="container relative bg-black mx-auto h-screen">
       <div className=" w-full bg-gray-950 flex items-center border-t border-gray-600 h-[8%] absolute bottom-0 left-0 p-2 z-50">
         <Sidebaar />
       </div>

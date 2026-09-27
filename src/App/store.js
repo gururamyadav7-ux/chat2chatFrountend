@@ -1,10 +1,10 @@
 
 // This file is used to configure the Redux store for the application. It imports the necessary reducers and combines them into a single store.
 import { configureStore } from "@reduxjs/toolkit";
-// Importing register reducer from the features folder to manage user registration state
-import userReducerRegister from "../features/register";
+// Importing register reducer from the features folder to manage user login state
+import userreducerRegister from "../features/Register";
 // Importing login reducer from the features folder to manage user login state
-import userReducerLogin from "../features/loginslice";
+import userreducerLogin from "../features/Login";
 // Importing user reducer from the features folder to manage user state
 import userReducerUser from "../features/userslice";
 // Importing AlluserReducer from the features folder to manage all users state
@@ -21,8 +21,8 @@ import ChateAccsesReducer from "../features//chat/ChatAccsesSlice"
 
 export const store = configureStore({
   reducer: {
-    register: userReducerRegister,
-    login: userReducerLogin,
+    Register: userreducerRegister,
+    login: userreducerLogin,
     user: userReducerUser,
     MenuOpen: MenuStatus,
     AllUser: AlluserReducer,

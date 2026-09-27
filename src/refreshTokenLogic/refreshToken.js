@@ -6,43 +6,56 @@ const api = axios.create({
   withCredentials: true, // refreshToken cookie bhejne ke liye
   headers: { "Content-Type": "application/json" }
 });
-// Request interceptor
-api.interceptors.request.use((config) => {
-  const token = getAccessToken();
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+api.interceptors.request.use(
+  (config) => {
+    const token = getAccessToken();
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
+);
 
-  return config;
-});
-
-// Response interceptor
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    return response;
+  },
 
   async (error) => {
     const originalRequest = error.config;
 
+    // Access token expire
     if (
       error.response?.status === 401 &&
-      !originalRequest._retry
+      !originalRequest._retry &&
+      !originalRequest.url.includes("/refresh")
     ) {
       originalRequest._retry = true;
 
       try {
-        const response = await api.post("/auth/refresh-token");
+        // Refresh token cookie automatically jayegi
+        const response = await api.post("/user/refreshtoken");
 
         const newAccessToken = response.data.accessToken;
 
-        setAccessToken(newAccessToken);
+        // New token save
+        setAccessToken(newAccessToken)
 
+        // Original request me new token
         originalRequest.headers.Authorization =
           `Bearer ${newAccessToken}`;
 
+        // Original request dobara
         return api(originalRequest);
 
       } catch (refreshError) {
+        // Refresh token bhi expire/invalid
         localStorage.removeItem("accessToken");
 
         window.location.href = "/login";

@@ -11,7 +11,6 @@ const ProfileEdit = ({ isOpen, onClose }) => {
   const { users } = useSelector((state) => {
     return state.user;
   });
-  console.log(users);
 
   // object FormData 
   const [profile, setProfile] = useState({

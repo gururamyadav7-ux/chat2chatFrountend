@@ -1,17 +1,18 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { registerUser } from "../../features/register";
+import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL
+const api = axios.create({
+  baseURL: apiUrl,
+  withCredentials: true,
+});
+// hook 
+import { UserContext } from "../../Hook/UserContext";
+
 
 const Register = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const { loading, error, success } = useSelector((state) => {
-    return state.register;
-  });
-
-  console.log(success);
+  const { setUser } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -20,6 +21,12 @@ const Register = () => {
     password: "",
   });
 
+
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [message, setMessage] = useState("")
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -27,10 +34,24 @@ const Register = () => {
     });
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await dispatch(registerUser(formData));
+      setLoading(true)
+      const response = await api.post(
+        "/user/register",
+        formData
+      );
+
+      setUser(formData)
+      const OTPData = response.data
+
+      setSuccess(OTPData.success)
+      setMessage(OTPData.message)
+
+      setLoading(false)
+
       setFormData({
         name: "",
         email: "",
@@ -38,12 +59,15 @@ const Register = () => {
         password: "",
       });
 
-      navigate("/chat");
+      navigate("/OtpVerification")
     } catch (err) {
+      setError("Server err")
       console.log(err);
       navigate("/register");
     }
   };
+
+  console.log(loading);
   return (
     <div className="min-h-screen bg-[#f0f2f5] flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
@@ -56,13 +80,13 @@ const Register = () => {
 
         {success && (
           <p className=" fixed top-4 left-1/2 z-40  text-green-500 text-sm mb-4">
-            {success}
+            {message}
           </p>
         )}
 
         <h1 className="text-3xl font-semibold text-center">Create Account</h1>
 
-        <p className="text-gray-500 text-center mt-2 mb-6">Join WhatsApp</p>
+        <p className="text-gray-500 text-center mt-2 mb-6">Join WordWav</p>
 
         <form onSubmit={handleSubmit}>
           {/* Name */}
@@ -127,6 +151,8 @@ const Register = () => {
 
           {/* Error */}
           {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+          {message && <p className=" fixed top-2  right-1/2  translate-x-1/2 ">{message}</p>}
 
           {/* Success */}
           {success && <p className="text-green-500 text-sm mb-4">{success}</p>}
